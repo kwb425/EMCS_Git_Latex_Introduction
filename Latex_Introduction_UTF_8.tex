@@ -1,0 +1,754 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%t%%%%%%%%%%%%%%%%%
+% Latex Introduction
+%
+% 														               	       Written by Kim, Wiback,
+% 																            2016.04.21. Ver. 1.1.
+%           															            2016.05.01. Ver. 1.2.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%t%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% Document Settings %%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%
+% Class
+%%%%%
+% Other {options}: slides, minimal, ...
+\documentclass[12pt, oneside]{article} 
+
+
+
+%%%%%%%
+% Packages
+%%%%%%%
+
+%%% Layout
+\usepackage{geometry}                		
+% Other {options}: letterpaper, a5paper, ...
+\geometry{a4paper}                   		
+
+%%% Mathematics
+% Loading mathematical symbols
+\usepackage{amssymb}				
+% Enabling advanced mathematical equation control
+\usepackage{amsmath} 
+% Enabling cancelation of mathematical equations
+\usepackage{cancel}
+
+%%% Enabling hyper links
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    % Links (except url) in blues
+    linkcolor = blue, 
+    % Files in magentas
+    filecolor = magenta, 
+    % urls in cyan
+    urlcolor = cyan, 
+} 
+\urlstyle{same} 
+
+%%% Use pdf, png, jpg, or eps (Encapsulated PostScript) with pdflatex; Use eps in DVI mode.
+\usepackage{graphicx}				
+
+
+
+%%%%%%%%
+% If necessary, 
+%%%%%%%%
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+
+
+
+%%%%%%%%
+% Links to TOC
+%%%%%%%%
+\usepackage{eso-pic}
+\usepackage{ifthen}
+% Activate links to TOC.
+\newboolean{linktoc}
+% Make it false to disable the links.
+\setboolean{linktoc}{true}  
+
+%%% Custom functions (change vertical locations to avoid overlap.)
+% Vertical location -0.5 from top (more minus to go down)
+\newcommand\AtPageUpperRight[1]{\AtPageUpperLeft{
+\put(\LenToUnit{\paperwidth},\LenToUnit{-0.5\paperheight}){#1}}}
+% Vertical location 0.5 from bottom (more plus to go up)
+\newcommand\AtPageLowerRight[1]{\AtPageLowerLeft{
+\put(\LenToUnit{\paperwidth},\LenToUnit{0.5\paperheight}){#1}}}
+
+%%% Dispatching clickable objects that lead to TOC.
+\ifthenelse{\boolean{linktoc}}
+{\AddToShipoutPictureBG{
+% Horizontal location -70 (more minus to go left)
+\AtPageUpperRight{\put(-70,0){\hyperref[toc]{To Contents}}} 
+% Horizontal location -70 (more minus to go left)
+\AtPageLowerRight{\put(-70,0){\hyperref[toc]{To Contents}}}}}
+
+
+
+%%%%%%%%
+% Line spacing
+%%%%%%%%
+% Use 1.3 for one and half, 1.6 for double.
+\linespread{1} 
+
+
+
+%%%%
+% Title
+%%%%
+% Making the title
+\title{\LaTeXe{} Introduction \thanks{For anyone who is interested in Latex}} % \function{} blank for spacing
+% Using \~{} to denote ~ sign
+\author{Kim, Wiback \thanks{Efficiency\~{} \href{mailto:kwb425@icloud.com}{kwb425@icloud.com}}} 
+\date{2016.04.20}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%% Main Documenting Basics %%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%
+% Preamble
+%%%%%%%
+\begin{document}
+% Drawing the title
+\maketitle
+% Table of contents
+\tableofcontents \label{toc}
+
+
+
+%%%%%%
+% Abstract
+%%%%%%
+\begin{abstract} 
+You can learn very basics of using \LaTeXe as well as some advanced mathematical applications.
+\end{abstract}
+
+
+
+%%%%%%%%%
+% Section: basics
+%%%%%%%%%
+% \chapter{} -> \section{} -> \subsection{} -> \subsubsection{} -> \paragraph{} -> \subparagraph{}
+\section{Basics} % \chapter{} only works with book or report.
+
+
+
+%%%%%%%%%%%
+% Subsection: pages
+%%%%%%%%%%%
+% New page
+\newpage
+\subsection{Pages}
+New page
+
+
+
+%%%%%%%%%%
+% Subsection: lines
+%%%%%%%%%%
+\subsection{Lines} % \part{} is an independent section (has nothing to do with the ordering).
+% Grouping characters
+Going off the right edge of the paper $\to$ \mbox{These strings and numbers (21312903) will be grouped together at any cases.} % $\to$ denotes right arrow.
+% New line
+\newline
+`New line' % Quotation is done by ` and '.
+\newline
+``New line'' % Quotation is done by ` and '.
+
+
+
+%%%%%%%%%%%%%%
+% Subsection: hyphenation
+%%%%%%%%%%%%%%
+\subsection{Hyphenation}
+% \\ is same as \newline.
+Single-hyphenation \\ % Single
+Double--hyphenation \\ % Double
+Triple---hyphenation \\ % Triple
+Minus sign: $-1$ \\ % Minus sign
+
+
+
+%%%%%%%%%%%%%%
+% Subsection: Internet links
+%%%%%%%%%%%%%%
+\subsection{Internet links}
+% Merits of using \url: 
+% 1. automatic ~ (instead of \~{})
+% 2. giving link
+% 3. different font for WWW address
+\url{https://github.com/kwb425/Latex_Introduction_TeXShop}
+
+
+
+%%%%%%%%%%%%%%%%
+% Subsection: end of sentences
+%%%%%%%%%%%%%%%%
+\subsection{End of sentences}
+% End of a sentence is followed by automatic spacing for next sentence
+% ! (end) spacing
+% ? (end) spacing
+% . (end) spacing
+% lowercase (end) spacing
+% \@ (forced end) spacing
+Sentence end with CAPITALS\@. 
+% vertical \vdots, center \cdots, row \ldots, diagonal \ddots
+Next Sentence\ldots 
+
+
+
+%%%%%%%%%%%%%%%%
+% Subsection: cross-reference
+%%%%%%%%%%%%%%%%
+\subsection{Cross-reference}
+% Labelling 
+\label{sample_label_1}
+% Referencing
+\ref{sample_label_1} on page
+% Extracting page number of the label
+~\pageref{sample_label_1} 
+
+
+
+%%%%%%%%%%%%%
+% Subsection: Footnotes
+%%%%%%%%%%%%%
+% All footnotes must be protected in \section methods.
+\subsection{Footnotes\protect\footnote{sample\_footnote\_1}} 
+footnote\footnote{sample\_footnote\_2}
+
+
+
+%%%%%%%%%%%%%%
+% Subsection: emphasizing
+%%%%%%%%%%%%%%
+\subsection{Emphasizing}
+Three methods are \textbf{bold}, \emph{italic}, and \underline{underline}.
+
+
+
+%%%%%%%%%%%%%
+% Subsection: alignment
+%%%%%%%%%%%%%
+\subsection{Alignment}
+% Centering environment
+\begin{center}
+center alignment
+\end{center}
+% Flushleft environment
+\begin{flushleft}
+left alignment
+\end{flushleft}
+% Flushright environment
+\begin{flushright}
+right alignment
+\end{flushright}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Subsection:  enumerates & items & descriptions
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Enumerates \& Items \& Descriptions}
+
+%%% Enumerate has orderings.
+\begin{enumerate}
+% All objects (enumerates & items & descriptions) will be called by \item method.
+\item Sample\_enumerate\_1
+
+%%% Item has no orderings.
+\begin{itemize}
+\item Sample\_item\_1
+\item[-] Sample\_item\_2
+\end{itemize}
+% Second enumerate
+\item Sample\_enumerate\_2
+
+%%% Description has no orderings.
+\begin{description}
+\item [Sample\_description\_1] is a sample. % Bold with []
+\end{description}
+\end{enumerate}
+
+
+
+%%%%%%%%%%%%%
+% Subsection:  quatation
+%%%%%%%%%%%%%
+\subsection{Quatation}
+Below is sample quatation.
+\begin{quote}
+This sample is written by Kim, Wiback
+\end{quote}
+
+
+
+%%%%%%%%%%%%%%
+% Subsection:  raw printing
+%%%%%%%%%%%%%%
+\subsection{Raw printing}
+% verbatim environment provides raw printing area that has nothing to do with Latex.
+\begin{verbatim}
+Raw printing /~!@#$%^&*()_+
+\end{verbatim}
+
+
+
+%%%%%%%%%%%
+% Subsection:  tables
+%%%%%%%%%%%
+\subsection{Tables}
+% \begin{tabular}[pos]{table spec}
+% [pos]: t (top), b (bottom), c (center)
+% {table spec}: l (left alignment & column separator), r (right), c (center), p{width} (justifying with changing rows)
+\begin{tabular}[t]{| l @{ bound } c @{ bound } r |} % @{argument} replaces column separator with it's argument.
+% Row insertion through \hline
+\hline 
+% & for next column, \\ for next row  
+1st row               & 1st sample  & 1st sample                       \\
+2nd row              & 2nd sample & 2nd sample                      \\
+% Partial row insertion through \cline{startcolumn-endcolumn} 
+\cline{2-3} 
+3rd row               & 3rd sample & 3rd sample                        \\ 
+\hline 
+\hline
+Pi                        & \multicolumn{2}{ c |}{Value \& Rounding} \\ % \multicolumn{size}{table spec}{text}
+\hline
+$\pi$                   & 3.1416        & 3                                         \\
+$\pi^{\pi}$           & 36.46          & 36                                       \\
+$(\pi^{\pi})^{\pi}$ & 80662.7      & 80663                                 \\ 
+\hline
+\end{tabular}
+
+%%%%%%%%%%%
+% Subsection:  floats
+%%%%%%%%%%%
+% Floats are containers for things in a document that cannot be broken over a page.
+\subsection{Floats}
+% \begin{figure}[placement specifier] 
+% \begin{table}[placement specifier]
+% placement specifier:
+% h (here), t (top), b (bottom), p (page where floats are temporarily stacked), ! (force dispatch)
+% !hbp == force dispatch (ignoring some display limits), first here, then bottom, then page for floats
+
+%%% Activate for drawing
+%\begin{figure}[!hbp]
+%\makebox[\textwidth]{\framebox[5cm]{\rule{0pt}{5cm}}}
+%\caption{Five by Five in Centimetres.}
+%\end{figure}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% Advanced Main Documenting %%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%
+% Section: basics
+%%%%%%%%%
+% 1. Empty spaces, rows have no meanings in mathematical context. Use \,, \quad, or \qquad instead.
+% 2. No equation can be separated with a empty row.
+% 3. Normal text has to be inserted by \textrm{} (auto-resizing in \displaymath environment).
+\newpage
+\section{Mathematical equations}
+
+
+
+%%%%%%%%%%%%%%%%
+% Subsection: inline equations
+%%%%%%%%%%%%%%%%
+% Inline mathematic expressions: $ expressions $
+\subsection{Inline equations}
+% The binding with {}
+$ a^x+y \neq a^{x+y}$ \\\\ % \neq (not equal) 
+% Inline mathematic expressions: \begin{math} expressions \end{math}
+\begin{math} \lim_{n \to \infty} \sum_{k=1}^n \frac{1}{k^2} = \frac{\pi^2}{6} \end{math} % _subscript, ^superscript
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+% Subsection: new paragraphic equations
+%%%%%%%%%%%%%%%%%%%%%
+\subsection{New paragraphic equations}
+% New paragraphic mathematic expressions: \begin{displaymath} expressions \end{displaymath}
+\begin{displaymath}
+\lim_{n \rightarrow \infty}
+\sum_{k=1}^n \frac{1}{k^2}
+= \frac{\pi^2}{6}
+\end{displaymath}
+
+
+
+%%%%%%%%%%%%%%%%
+% Subsection: cross-reference
+%%%%%%%%%%%%%%%%
+\subsection{Cross-reference}
+% Not like displaymath (paragraphic) or math (inline) environment, 
+% equation (paragraphic) environment provides orderings.
+\begin{equation}
+% Labelling
+\label{sample_equation_1}
+\epsilon > 0
+\end{equation}
+% Calling the Label
+From (\ref{sample_equation_1}), \ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Subsection: texts in mathematical equations
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Texts in mathematical equations}
+
+%%% Only mathematic expressions
+Without texts:
+\begin{equation}
+% Moderate (\,), quite (\quad), a lot (\qquad) spacings
+\forall x \in \mathbf{R}: \qquad x^{2} \geq 0 % \geq (greater or equal)
+\end{equation}
+
+%%% Texts + Equations
+With texts:
+\begin{equation}
+% Either one among \text{}, \mbox{}, \textrm{} is fine.
+x^{2} \geq 0 \qquad \textrm{for all }x \in \mathbf{R} 
+\end{equation}
+
+
+
+%%%%%%%%%%%%
+% Subsection: Greeks
+%%%%%%%%%%%%
+\subsection{Greeks}
+% Latin-like alphabet will not be presented in \alphabet manner, but rather as just the alphabet itself.
+Lowers: $\alpha, \beta, \gamma, \delta, \epsilon, \zeta, \eta, \theta, \iota, \kappa, \lambda, \mu, \nu,
+\xi, o, \pi, \rho, \sigma, \tau, \upsilon, \phi, \chi, \psi, \omega$ \newline
+Uppers: $A, B, \Gamma, \Delta, E, Z, H, \Theta, I, K, \Lambda, M, N, \Xi, O, \Pi, P, \Sigma, T, \Upsilon, \Phi, X, \Psi, \Omega$
+
+
+
+%%%%%%%%%%
+% Subsection: roots
+%%%%%%%%%%
+\subsection{Roots}
+$\sqrt[3]{x}$ \qquad
+$\sqrt[4]{x^{2}+\sqrt[2]{y}}$ \qquad 
+$\sqrt[3]{2}$
+
+
+
+%%%%%%%%%%%
+% Subsection: braces
+%%%%%%%%%%%
+\subsection{Braces}
+$\overline{x + y}$ \qquad
+$\underline{x + y}$ \qquad
+$\underbrace{x + y + \cdots + z}_{26}$ \qquad
+$\overbrace{x + y + \cdots + z}^{26}$
+
+
+
+%%%%%%%%%%%%
+% Subsection: vectors
+%%%%%%%%%%%%
+\subsection{Vectors}
+\begin{displaymath}
+% Two ways of vectorizing
+\vec{a} \quad \overrightarrow{AB}
+\end{displaymath}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Subsection: derivatives & integrals & summations & products 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Derivatives \& Integrals \& Summations \& Products }
+% Creating a anonymous command (similar to @function of MATLAB)
+\newcommand{\ud}{\textrm{d}} % Now, \ud refers  to 'd'.
+Four processes.
+
+%%% The derivation	
+Derivatives:
+\begin{displaymath}
+y = x^{2} \qquad y' = 2 \cdot x \qquad y'' = 2 \qquad % \cdot for one center dot, \cdots for three center dots
+\frac{\partial f(x)}{\partial x} = \frac{\partial g(x)}{\partial y}
+\end{displaymath}
+
+%%% The integration
+Integrals:
+\begin{displaymath}
+% Single
+\int_{-\infty}^{\infty} \, \ud x \, \ud y 
+% Triple
+\iiint_{-\infty}^{\infty} \, \ud x \, \ud y
+\end{displaymath}
+
+%%% The summation
+summations:
+\begin{displaymath}
+% Sub-stacking
+\sum_{\substack{0<x<n \\ 1<y<m}} P(x,y) =
+% Subarray at center
+\sum_{\begin{subarray}{c} x \in I \\ 1<y<m \end{subarray}} Q(x,y) \qquad
+\end{displaymath}
+
+%%% The product
+products:
+\begin{displaymath}
+\prod_\epsilon^\infty
+\end{displaymath}
+
+
+
+%%%%%%%%%%%%
+% Subsection: functions
+%%%%%%%%%%%%
+% \arccos, \cos, \csc, \exp, \ker, \limsup, \min, \arcsin, \cosh, \deg, \gcd, 
+% \lg, \ln, \Pr, \arctan, \cot, \det, \hom, \lim, \log, \sec, \arg, \coth, \dim, 
+% \inf, \liminf, \max, \sin, \sinh, \sup, \tan, \tanh
+\subsection{Functions}
+Example among many functions (cos, sin, exp, ...):
+\begin{displaymath}
+\lim_{x \rightarrow 0} \frac{\sin x}{x} = 1
+\end{displaymath}
+
+
+
+%%%%%%%%%%%%
+% Subsection: fractions
+%%%%%%%%%%%%
+\subsection{Fractions}
+\begin{displaymath}
+\frac{x^{2}}{k+1} \qquad x^{\frac{2}{k+1}} \qquad x^{1/2} % Sometimes, just using / is better.
+\end{displaymath}
+
+
+
+%%%%%%%%%%%%%
+% Subsection: binomials
+%%%%%%%%%%%%%
+\subsection{Binomials}
+% Binomials is binomials because we divide by 2 (not like permutation).
+\begin{displaymath}
+\binom{n}{k} \qquad \mathrm{C}_n^k
+\end{displaymath}
+
+
+
+%%%%%%%%%%%%
+% Subsection: brackets
+%%%%%%%%%%%%
+\subsection{Brackets}
+Two ways of dealing with the brackets
+
+%%% Automatic sizings
+Automatic sizings:
+\begin{displaymath}
+% []
+[a, b, c] \equiv [a, b, c] \,
+% The automatic sizing
+\left[ \frac{1}{1-x^{2}} \right]^3 \qquad
+% ()
+(a, b, c) \equiv (a, b, c) \,
+% The automatic sizing
+\left( \frac{1}{1-x^{2}} \right)^3 \qquad
+% {}
+{a,b,c} \neq \{a,b,c\} \,
+% The automatic sizing
+\left\{ \frac{1}{1-x^{2}} \right\}^3 \qquad
+\end{displaymath}
+
+%%% Self sizings
+Self sizings: \\
+$\Big( (x+1) \cdot (x-1) \Big)^{2}$ \qquad
+$\big( \Big( \bigg( \Bigg($ \qquad
+$\big\} \Big\} \bigg\{ \Bigg\{$ \qquad
+
+
+
+%%%%%%%%%%%
+% Subsection: arrays
+%%%%%%%%%%%
+\subsection{Arrays}
+Three forms.
+
+%%% Full matrix
+Full matrix form:
+\begin{displaymath}
+% Displaying mathematical X
+\mathbf{X} =
+% Start an array with 3 columns.
+\left( \begin{array}{ccc} % \left( for (
+x_{11} & x_{12} & \ldots \\
+x_{21} & x_{22} & \ldots \\
+\vdots  & \vdots & \ddots
+% Close the array.
+\end{array} \right) % \right) for )
+\end{displaymath}
+
+%%% Half matrix
+Half matrix form:
+\begin{displaymath}
+% Start an array with 2 columns.
+y = \left\{ \begin{array}{cc} % \left{ for {
+ a     & \textrm{if $good$} \\
+ b+c & \textrm{well...}       \\
+ l      & \textrm{good for you?}
+\end{array} \right. % \right. for empty spacing
+\end{displaymath}
+
+%%% Separated matrix
+Separated form:
+\begin{displaymath}
+\left( \begin{array}{c | c}
+1 & 2 \\
+\hline
+3 & 4 
+\end{array} \right) 
+\end{displaymath}
+
+
+
+%%%%%%%%%%%%%
+% Subsection: multilines
+%%%%%%%%%%%%%
+% In this environment, one can use \\ (line switching operator).
+\subsection{Multilines}
+% eqnarray* will eraze all equation numberings.
+\begin{eqnarray} 
+f(x) = \cos x  \\
+f'(x) = -\sin x \\
+% Giving some spaces to both ends of the '='
+\int_{0}^{x} f(y)dy & = & \sin x 
+\end{eqnarray}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Subsection: advanced alignment with amsmath package
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Advanced alignment with amsmath package}
+Total five environments.
+
+%%% Equation
+Equation environment:
+% This is regular equation (to tag out equation numberings, use *.).
+\begin{equation} 
+e^{\pi i} - 1 = 0
+\end{equation}
+
+%%% Split (used in equation environment)
+% This environment provides table-like structure for mathematical equations.
+Split environment:
+\begin{equation}
+\begin{split}
+A & = \frac{\pi r^2}{2} \\
+   & = \frac{1}{2} \pi r^2
+\end{split}
+\end{equation}
+
+%%% Multiline
+% This environment will automatically align first to left, last to right, others to center.
+Multiline environment:
+\begin{multline*}
+p(x) = 3x^6 + 19x^3y^3 \\ 
+p(x) = 3x^6 + 19x^3y^3 \\
+p(x) = 3x^6 + 19x^3y^3 \\
+p(x) = 3x^6 + 19x^3y^3
+\end{multline*}
+
+%%% Gather
+% This is simply a multiline environment with centred lines.
+Gather environment:
+\begin{gather*} 
+2x - 5y = 8 \\ 
+3x^2 + 9y = 1
+\end{gather*}
+
+%%% Align (highly useful)
+% '&' is a vertical aligner.
+Align environment:
+\begin{align*}
+x          &= y       &  w      &= z                 &  a  &= b + c \\ 
+2x        &= -y      &  3w    &= \frac{1}{2}z &  a  &= b       \\
+-4 + 5x &= 2 + y & w + 2 &= -1 + w        &  ab &= cb
+\end{align*}
+
+
+
+%%%%%%%%%%%%%%%%%%%
+% Subsection: delicate space control
+%%%%%%%%%%%%%%%%%%%
+\subsection{Delicate space control}
+\begin{displaymath}
+% Put some hollow spaces (phantom) of length equal to that of xy before superscript.
+\Gamma_{xy}^{\phantom{xy}z}
+\qquad \textrm{vs} \qquad
+% Without the phantom spaces
+\Gamma_{xy}^{z}
+\end{displaymath}
+
+
+
+%%%%%%%%%%%%%%%%
+% Subsection: bold in equations
+%%%%%%%%%%%%%%%%
+\subsection{Bold in equations}
+\begin{displaymath}
+\mu, M \qquad
+\boldsymbol{\mu}, \boldsymbol{M}
+\end{displaymath}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Subsection: Encapsulated PostScript, .eps
+%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Encapsulated PostScript, .eps}
+% Figure will be drawn in a float.
+\begin{figure}
+\centering
+\caption{Upper caption}
+% Rotation of 90, horizontal size is half of \textwidth, and file is located at eps_files/test_image.eps.
+\includegraphics[angle = 90, width = 0.5\textwidth]{eps_files/sample_image_1.eps}
+\caption{Bottom caption}
+\end{figure}
+% Giving some spaces for the figure to be drawn.
+\newpage
+
+
+
+%%%%%%%%%%%%%
+% Subsection: references
+%%%%%%%%%%%%%
+\subsection{References}
+Kim \cite{sample_cite_1} has proposed that \ldots
+% thebibliography environment 
+\begin{thebibliography}{99} % Maximum number of references is, in this case, 99.
+% Use \bibitem for each reference.
+\bibitem{sample_cite_1} Kim:
+\emph{Korea},
+Introduction to \LaTeXe (2016)
+\end{thebibliography}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%% End of the Document %%%%%%%%%%%%%%%%%%%%%%
+\end{document}  
